@@ -1,4 +1,13 @@
 
+function ordenarLista(arrayDesordenado) {
+    let array= arrayDesordenado.sort((a,b)=>a-b)
+    
+    return array
+    
+}
+
+
+
 function esPar(array) {
     let arrayCantidadElementos = array.length
     if ((arrayCantidadElementos % 2)===0) {
@@ -11,7 +20,8 @@ function esPar(array) {
     
 }
 
-function calcularMediana(array) {
+function calcularMediana(listaDesordenada) {
+    let array = ordenarLista(listaDesordenada)
     let esLaListaPar = esPar(array)
     if (esLaListaPar) {
         let index1Mediana = Math.floor(array.length/2)-1
@@ -31,4 +41,6 @@ function calcularMediana(array) {
     }
     
 }
-calcularMediana([12,6,4,4])
+calcularMediana([80,54,90,65,47,98])
+
+
