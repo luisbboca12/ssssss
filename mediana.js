@@ -1,27 +1,34 @@
 
-function ordenarLista(arrayDesordenado) {
-    let array= arrayDesordenado.sort((a,b)=>a-b)
-    
-    return array
-    
-}
-
-
-
-function esPar(array) {
-    let arrayCantidadElementos = array.length
-    if ((arrayCantidadElementos % 2)===0) {
-        return true
+function moda(lista) {
+    const  object={}
+    for (let i = 0; i < lista.length; i++) {
+        const element = lista[i];
         
-    } else {
-        return false
-        
+        if (object[element]) {
+            object[element]++
+            
+        } else {
+            object[element]=1
+            
+        }
     }
     
+    let arrayAcomodar = Object.entries(object)
+    let listaOrdenada = ordenarLista(arrayAcomodar,1)
+    console.log({object,arrayAcomodar,listaOrdenada})
+}
+function ordenarLista(arrayAcomodar,i) {
+    function ordenarListaSort(a,b) {
+        return a[i]-b[i]
+        
+    }
+    let lista = arrayAcomodar.sort(ordenarListaSort)
+    return lista
 }
 
-function calcularMediana(listaDesordenada) {
-    let array = ordenarLista(listaDesordenada)
+
+moda([10,20,30,30,10,30])
+a)
     let esLaListaPar = esPar(array)
     if (esLaListaPar) {
         let index1Mediana = Math.floor(array.length/2)-1
